@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:mongo2/services/mogo_service.dart';
+import 'package:mongo2/screens/phone_screen.dart';
+import 'package:mongo2/services/mongo_service.dart';
 
-void main()  async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await MongoService().connect();
+  print('Conexion a MongoDB establecida');
   runApp(const MainApp());
 }
 
@@ -14,11 +16,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+      home: PhoneScreen(),
     );
   }
 }

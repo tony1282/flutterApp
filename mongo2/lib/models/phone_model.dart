@@ -14,15 +14,14 @@ class PhoneModel {
     required this.existencia,
     required this.precio,
   });
-
-  //convertir un map a js
+  // convertir un map a Json
   Map<String, dynamic> toJson() {
     return {
-      '_id' : id,
-      'marca' : marca,
-      'modelo' : modelo,
-      'existencia' : existencia,
-      'precio' : precio
+      '_id': id,
+      'marca': marca,
+      'modelo': modelo,
+      'existencia': existencia,
+      'precio': precio,
     };
   }
 
@@ -38,15 +37,11 @@ class PhoneModel {
       id = mongo.ObjectId();
     }
     return PhoneModel(
-      id: id,
+      id: id as mongo.ObjectId,
       marca: json['marca'] as String,
       modelo: json['modelo'] as String,
       existencia: json['existencia'] as int,
       precio: json['precio'] as double,
     );
-
-
-    
   }
 }
-
